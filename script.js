@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+  const menuIcon = $(".menu_icon");
+  const mobileMenu = $(".header ul");
+
+  menuIcon.on('click touchstart', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    mobileMenu.toggleClass("open");
+  });
+
   //sticky header
     $(window).scroll(function() {
       if ($(this).scrollTop() > 1) {
@@ -41,6 +50,17 @@ $(document).ready(function() {
   
       $(".header ul li a").removeClass("active");
       $(this).addClass("active");
+
+      // Auto-close dropdown after selecting a section on phones.
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        mobileMenu.removeClass("open");
+      }
+    });
+
+    $(document).click(function(e) {
+      if (!$(e.target).closest('.header').length) {
+        mobileMenu.removeClass('open');
+      }
     });
   
 
@@ -69,18 +89,20 @@ $(document).ready(function() {
   const form = document.forms['submitToGoogleSheet']
   const msg = document.getElementById("msg")
 
-  form.addEventListener('submit', e => {
+    if (form && msg) {
+    form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then(response => {
-              msg.innerHTML = "Message sent successfully"
-              setTimeout(function () {
-                  msg.innerHTML = ""
-              }, 5000)
-              form.reset()
-          })
-          .catch(error => console.error('Error!', error.message))
-  })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully"
+          setTimeout(function () {
+            msg.innerHTML = ""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    }
     
   });
   
@@ -173,3 +195,40 @@ function closeProjectModal() {
   // Hide modal
   modal.classList.remove('show');
 }
+
+function setMobileCertificationsHeight() {
+  const certificationsGrid = document.querySelector('.certifications-grid');
+
+  if (!certificationsGrid) {
+    return;
+  }
+
+  const isPhoneView = window.matchMedia('(max-width: 768px)').matches;
+
+  if (!isPhoneView) {
+    certificationsGrid.style.removeProperty('--mobile-cert-visible-height');
+    return;
+  }
+
+  const cards = certificationsGrid.querySelectorAll('.certificate-card');
+
+  if (cards.length <= 3) {
+    certificationsGrid.style.removeProperty('--mobile-cert-visible-height');
+    return;
+  }
+
+  const gridStyles = window.getComputedStyle(certificationsGrid);
+  const gapValue = gridStyles.rowGap || gridStyles.gap || '0';
+  const gap = parseFloat(gapValue) || 0;
+
+  let visibleHeight = 0;
+  for (let i = 0; i < 3; i += 1) {
+    visibleHeight += cards[i].offsetHeight;
+  }
+
+  visibleHeight += gap * 2;
+  certificationsGrid.style.setProperty('--mobile-cert-visible-height', `${Math.ceil(visibleHeight)}px`);
+}
+
+window.addEventListener('load', setMobileCertificationsHeight);
+window.addEventListener('resize', setMobileCertificationsHeight);
