@@ -24,7 +24,7 @@ body{
   background-color:#000000;
 }
 .container{
-  width: 1170px;
+  width: min(1170px, 92%);
   margin:auto;
 }
 
@@ -78,6 +78,7 @@ body{
   display:flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   /* padding-bottom: 2rem; */
 } 
 .logo {
@@ -136,8 +137,7 @@ body{
 .animated-name {
   font-size: 50px;
   font-family: 'Arial', sans-serif;
-  color: #3498db;
-  animation: fadeInColorChange 1s ease-in-out infinite;
+  color: aqua;
 }
 
 @keyframes fadeInColorChange {
@@ -163,6 +163,7 @@ body{
    display:flex;
    justify-content: space-around;
    align-items: center;
+  gap: 2rem;
    padding-top: 5rem; 
 } 
 
@@ -173,9 +174,8 @@ body{
 .FirstElement .profile-photo{
   display: inline-block;
   padding: 10px;
-  border: 5px solid transparent;
+  border: 5px solid aqua;
   border-radius: 50%; /* Optional: for a circular image */
-  animation: borderAnimation 1s infinite;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -208,6 +208,7 @@ profile-photo .img{
 }
 .profile-text{
   max-width: 750px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -544,6 +545,34 @@ profile-photo .img{
   .certifications-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+    max-height: var(--mobile-cert-visible-height, none);
+    overflow-y: auto;
+    padding-right: 8px;
+    scroll-snap-type: y proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 255, 0.7) rgba(255, 255, 255, 0.08);
+  }
+
+  .certifications-grid::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .certifications-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+  }
+
+  .certifications-grid::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(0, 255, 255, 0.95), rgba(0, 170, 170, 0.9));
+    border-radius: 999px;
+  }
+
+  .certifications-grid::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(0, 255, 255, 1), rgba(0, 190, 190, 0.95));
+  }
+
+  .certificate-card {
+    scroll-snap-align: start;
   }
 
   .certificate-image {
@@ -591,6 +620,7 @@ profile-photo .img{
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 15px;
+    padding-right: 8px;
   }
 
   .certificate-card {
@@ -949,24 +979,101 @@ profile-photo .img{
 /* Mobile Layout */
 @media only screen and (max-width:767px){
   .container{
-    width: 350px;
+    width: min(100%, 88%);
+  }
+
+  .FirstElement {
+    padding-top: 1.5rem;
+    gap: 1.2rem;
   }
 
   .header .menu_icon {
     display: block;
   }
   .header ul{
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 220px;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    z-index: 120;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .header ul.open {
+    padding: 12px;
+    border: 1px solid aqua;
+    max-height: 280px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .header ul.open li {
+    margin: 0;
+    width: 100%;
+  }
+
+  .header ul.open li a {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
   }
   .header i{
     color: #e5e5e5;
   }
 
   .profile-text{
-    width: 350px;
+    width: 100%;
+    padding: 20px 8px;
+  }
+
+  .profile-text h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+  }
+
+  .btn-group .btn {
+    margin: 0;
   }
   .FirstElement .profile-text p{
     text-align: justify;
+    padding: 0 4px;
+  }
+
+  .about-content,
+  .about-skills {
+    padding: 0 8px;
+  }
+
+  .about-content ul,
+  .about-skills ul,
+  .project p,
+  .certificate-description {
+    padding: 0 4px;
+  }
+
+  .project {
+    padding: 20px 16px;
   }
   .about{
     flex-direction: column;
