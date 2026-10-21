@@ -9,17 +9,39 @@ $(document).ready(function() {
     mobileMenu.toggleClass("open");
   });
 
-  //sticky header
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 1) {
-        $(".header-area").addClass("sticky");
-      } else {
-        $(".header-area").removeClass("sticky");
-      }
-  
-      // Update the active section in the header
-      updateActiveSection();
-    });
+  // Scroll Progress Indicator & Back to Top controls
+  const scrollProgress = $("#scroll-progress");
+  const backToTopBtn = $("#backToTop");
+
+  $(window).scroll(function() {
+    const scrollTop = $(this).scrollTop();
+    const docHeight = $(document).height() - $(window).height();
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+    if (scrollProgress.length) {
+      scrollProgress.css("width", Math.min(100, Math.max(0, scrollPercent)) + "%");
+    }
+
+    if (scrollTop > 20) {
+      $(".header-area").addClass("sticky");
+    } else {
+      $(".header-area").removeClass("sticky");
+    }
+
+    if (scrollTop > 350) {
+      backToTopBtn.addClass("visible");
+    } else {
+      backToTopBtn.removeClass("visible");
+    }
+
+    // Update the active section in the header
+    updateActiveSection();
+  });
+
+  backToTopBtn.on("click", function(e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 600);
+  });
   
     $(".header ul li a").click(function(e) {
       e.preventDefault(); 
@@ -64,25 +86,55 @@ $(document).ready(function() {
     });
   
 
-    //Initial content revealing js
-    ScrollReveal({
-      distance: "100px",
-      duration: 2000,
-      delay: 200
-    });
-  
-    ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", {
-      origin: "left"
-    });
-    ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", {
-      origin: "right"
-    });
-    ScrollReveal().reveal(".project-title, .contact-title", {
-      origin: "top"
-    });
-    ScrollReveal().reveal(".projects, .contact", {
-      origin: "bottom"
-    });
+    // Enhanced Responsive Scroll Animations with ScrollReveal
+    if (typeof ScrollReveal !== 'undefined') {
+      const sr = ScrollReveal({
+        distance: "40px",
+        duration: 900,
+        easing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        delay: 100,
+        reset: false
+      });
+
+      // Hero Elements
+      sr.reveal(".profile-photo", { origin: "left", distance: "50px", delay: 150 });
+      sr.reveal(".profile-text", { origin: "right", distance: "50px", delay: 200 });
+
+      // About Section
+      sr.reveal(".about-content", { origin: "left", distance: "40px", delay: 150 });
+      sr.reveal(".about-skills", { origin: "right", distance: "40px", delay: 200 });
+
+      // Section Titles
+      sr.reveal(".project-title, .section-title", { origin: "top", distance: "30px", delay: 100 });
+
+      // Projects (Staggered entrance with smooth scale)
+      sr.reveal(".project", { origin: "bottom", distance: "50px", interval: 180, scale: 0.95 });
+
+      // Certifications (Staggered cascade)
+      sr.reveal(".certificate-card", { origin: "bottom", distance: "40px", interval: 120, scale: 0.96 });
+    }
+
+    // Interactive 3D Card Hover / Scroll Perspective on Desktop
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      $(".project, .certificate-card").on("mousemove", function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateX = (-y / rect.height) * 7;
+        const rotateY = (x / rect.width) * 7;
+        $(this).css({
+          transform: "perspective(1000px) rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg) translateY(-8px)",
+          boxShadow: "0 18px 40px rgba(0, 255, 255, 0.28)",
+          borderColor: "aqua"
+        });
+      }).on("mouseleave", function() {
+        $(this).css({
+          transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)",
+          boxShadow: "",
+          borderColor: ""
+        });
+      });
+    }
 
   //contact form to excel sheet
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';

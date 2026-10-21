@@ -69,9 +69,14 @@ body{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99;
-  background-color: #202020;
-  padding: 5px;
+  z-index: 999;
+  background-color: rgba(9, 11, 16, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  padding: 10px 0;
+  transition: all 0.35s ease;
 }
 
 .header{
@@ -121,11 +126,33 @@ body{
   text-transform: capitalize;
   display: block;
 }
+.header ul li a{
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
 .header ul li a.active{
-  color:  aqua;;
+  color: aqua;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 } 
 .header ul li a:hover{
-  color: aqua;;
+  color: aqua;
+}
+.header ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: aqua;
+  box-shadow: 0 0 8px aqua;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 2px;
+}
+.header ul li a.active::after,
+.header ul li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 .header .menu_icon{
   color:#00eeff;
@@ -1169,3 +1196,87 @@ profile-photo .img{
 
 }
 
+
+
+/*---------------------------Scroll Animations & Indicators---------------------------*/
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #00f2fe 0%, #00ffff 50%, #4facfe 100%);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.9), 0 0 20px rgba(0, 255, 255, 0.5);
+  z-index: 10001;
+  transition: width 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 46px;
+  height: 46px;
+  background: rgba(10, 15, 22, 0.85);
+  border: 2px solid aqua;
+  color: aqua;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.85);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  background: aqua;
+  color: #000;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-top i {
+  transition: transform 0.25s ease;
+}
+
+.back-to-top:hover i {
+  transform: translateY(-2px);
+}
+
+/* Card hover glow & smooth motion */
+.project {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.project:hover {
+  border-color: aqua;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 255, 255, 0.25);
+}
+
+.certificate-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.certificate-card:hover {
+  border-color: aqua;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 255, 255, 0.3);
+}
