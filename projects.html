@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Rajendra Singh Bisht</title>
+    <link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
+</head> 
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-------------------------- Header Area -------------------------->
+    <header class="header-area">
+        <div class="container">
+            <div class="header">
+               
+                <a href="index.html#home" class="logo">
+                    <img src="images/Rajendra.png" alt="" class="signature" style="color: aqua;">
+                    <i class="fa fa-code" style="color: aqua;"></i>
+                </a>
+                   
+                <ul class="navbar">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                </ul>
+                
+                <div class="menu_icon">
+                    <i class="fa fa-bars"></i>
+                </div>
+
+            </div>
+        </div> 
+    </header>
+
+    <!-------------------------- Subpage Hero -------------------------->
+    <div class="subpage-hero">
+        <div class="container">
+            <a href="index.html" class="subpage-back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <h1>All Projects</h1>
+            <p>Explore my complete portfolio of web applications, AI tools, peer-to-peer networks, and data analytics dashboards.</p>
+        </div>
+    </div>
+
+    <!-------------------------- Projects Grid -------------------------->
+    <section class="project-content subpage-content" id="projects">
+        <div class="container">
+            <div class="projects subpage-grid">
+                
+                <!-- Project 1: NullVoid -->
+                <div class="project">
+                    <h4>NullVoid<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(Ephemeral P2P Mesh)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/nullvoid.png" alt="NullVoid P2P Mesh Chat">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>A decentralized, ephemeral peer-to-peer (P2P) mesh chat platform built with WebRTC and Tailwind CSS. Features direct browser-to-browser encrypted data channels with zero server logging, zero trace, and no backend database.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/nullvoid" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://nullvoid-psi.vercel.app" target="_blank" class="project-btn live-btn">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Consis AI -->
+                <div class="project">
+                    <h4>Consis AI<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(Executive Text Summarizer)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/consisai.png" alt="Consis AI Neural Summarizer">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>An AI-powered abstractive text summarization platform deployed serverless on Vercel. Integrates neural inference models (BART, Pegasus, Qwen) with edge routing to deliver high-density executive briefs, key takeaways, and compression analytics.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/ConsisAI" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://consisai.vercel.app" target="_blank" class="project-btn live-btn">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Esports Telemetry -->
+                <div class="project">
+                    <h4>Esports Telemetry & Engagement<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(Power BI)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/espobi.png" alt="Esports Telemetry Dashboard">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>An interactive Power BI business analytics dashboard designed to analyze live streaming broadcast metrics, tournament audience engagement, and viewership demographics in the esports competitive industry.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/Sales_Dashboard-Excel_PowerBI" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Sales Dashboard -->
+                <div class="project">
+                    <h4>Sales Dashboard<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(Ms Excel)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/Salesexcel.png" alt="Sales Dashboard">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>An interactive sales analytics workbook engineered using advanced Microsoft Excel techniques to clean raw e-commerce transaction data, formulate KPIs, and visualize revenue performance with dynamic pivot slicers.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/Sales-Dashboard-Excel-" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Real Time Chat -->
+                <div class="project">
+                    <h4>Real Time Chat Application<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(Node.js & WebSockets)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/chat.png" alt="Real Time Chat Application">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>A full-stack room-based messaging platform enabling instant bidirectional communication, live user presence, typing indicators, image attachments, and responsive mobile-first UI layout.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/realtimechat/tree/master" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Portfolio Website -->
+                <div class="project">
+                    <h4>Portfolio Website<br><small style="font-size: 15px; color: aqua; font-weight: 500;">(HTML, CSS & JS)</small></h4>
+                    <div class="project-image" onclick="openProjectModal(this)">
+                        <img src="images/web.png" alt="Portfolio Website">
+                        <span class="image-icon"><i class="fa fa-image"></i></span>
+                    </div>
+                    <p>Personal developer portfolio website featuring a dark neon aesthetic, responsive flex/grid layouts, customized CSS micro-interactions, ScrollReveal entrance animations, and direct deployment on Vercel.</p>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Rajendra7637/PORTFOLIOO" target="_blank" class="project-btn github-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://portfolioo-kohl-beta.vercel.app" target="_blank" class="project-btn live-btn">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal" onclick="closeProjectModal()">
+        <div class="project-modal-content" onclick="event.stopPropagation()">
+            <span class="project-close-btn" onclick="closeProjectModal()">&times;</span>
+            <img id="projectModalImage" src="" alt="Project Dashboard">
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-------------------------- JS -------------------------->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+    
+    <!-------------------------- Footer section -------------------------->
+    <footer class="footer">
+        <small class="message">Thanks for visiting and happy coding!</small>
+        <small class="copyright">&copy; Rajendra 2026. All rights reserved.</small>
+    </footer>
+
+</body>
+</html>

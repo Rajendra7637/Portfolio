@@ -1280,3 +1280,102 @@ profile-photo .img{
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0, 255, 255, 0.3);
 }
+
+
+/*---------------------------Subpage & View More Styles---------------------------*/
+.subpage-hero {
+  padding: 130px 20px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.subpage-hero h1 {
+  font-size: 42px;
+  color: aqua;
+  text-transform: uppercase;
+  margin: 15px 0 10px;
+  letter-spacing: 1px;
+}
+
+.subpage-hero p {
+  color: #c7c7c7;
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.subpage-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(0, 255, 255, 0.05);
+  transition: all 0.25s ease;
+}
+
+.subpage-back-link:hover {
+  color: #000;
+  background: aqua;
+  border-color: aqua;
+  transform: translateX(-3px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.subpage-content {
+  padding-top: 20px !important;
+}
+
+.subpage-grid {
+  justify-content: center;
+  gap: 30px;
+}
+
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  width: 100%;
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 32px;
+  background: rgba(0, 255, 255, 0.06);
+  color: aqua;
+  border: 2px solid aqua;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.view-more-btn:hover {
+  background: aqua;
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.55);
+}
+
+.view-more-btn i {
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+.view-more-btn:hover i {
+  transform: translate(2px, -2px);
+}

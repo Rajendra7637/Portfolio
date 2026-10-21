@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Certifications | Rajendra Singh Bisht</title>
+    <link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
+</head> 
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-------------------------- Header Area -------------------------->
+    <header class="header-area">
+        <div class="container">
+            <div class="header">
+               
+                <a href="index.html#home" class="logo">
+                    <img src="images/Rajendra.png" alt="" class="signature" style="color: aqua;">
+                    <i class="fa fa-code" style="color: aqua;"></i>
+                </a>
+                   
+                <ul class="navbar">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="certifications.html" class="active">Certifications</a></li>
+                </ul>
+                
+                <div class="menu_icon">
+                    <i class="fa fa-bars"></i>
+                </div>
+
+            </div>
+        </div> 
+    </header>
+
+    <!-------------------------- Subpage Hero -------------------------->
+    <div class="subpage-hero">
+        <div class="container">
+            <a href="index.html" class="subpage-back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <h1>All Certifications</h1>
+            <p>A comprehensive gallery of my verified certifications, credentials, and specialized coursework in web engineering, data analytics, and generative AI.</p>
+        </div>
+    </div>
+
+    <!-------------------------- Certifications Grid -------------------------->
+    <section class="certifications-section subpage-content" id="certifications">
+        <div class="container">
+            <div class="certifications-grid">
+
+                <!-- Certificate 1: freeCodeCamp -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal(this)">
+                        <img src="images/responsive.png" alt="Responsive Web Design Certificate">
+                    </div>
+                    <h4 class="certificate-title">Responsive Web Design (freeCodeCamp)</h4>
+                    <p class="certificate-description">Completed freeCodeCamp's Legacy Responsive Web Design V8 certification, a ~300-hour, project-based program covering HTML5, CSS3, Flexbox, CSS Grid, media queries, and accessibility fundamentals.</p>
+                </div>
+
+                <!-- Certificate 2: Excel -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal(this)">
+                        <img src="images/Excel.png" alt="Excel Completion Certificate">
+                    </div>
+                    <h4 class="certificate-title">Excel Completion Certificate</h4>
+                    <p class="certificate-description">Completed the Excel Course from Infosys Springboard, gaining practical skills in data cleaning, formulas, charts, and pivot tables for effective data analysis and visualization.</p>
+                </div>
+
+                <!-- Certificate 3: Power BI -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal(this)">
+                        <img src="images/powerbi.png" alt="Power BI Certificate">
+                    </div>
+                    <h4 class="certificate-title">Power BI Certificate</h4>
+                    <p class="certificate-description">Completed the Power BI Course from Infosys Springboard, gaining practical skills in data visualization, dashboards, DAX expressions, and business intelligence reporting for real-world decision making.</p>
+                </div>
+
+                <!-- Certificate 4: Generative AI -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal(this)">
+                        <img src="images/MGenai.png" alt="Career Essentials in Generative AI Certificate">
+                    </div>
+                    <h4 class="certificate-title">Career Essentials in Generative AI by Microsoft and LinkedIn</h4>
+                    <p class="certificate-description">Professional certificate in foundational GenAI architectures, ethical AI implementation, and hands-on integration of generative AI tools with analytical dashboards.</p>
+                </div>
+
+                <!-- Certificate 5: Claude Code in Action -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal(this)">
+                        <img src="images/claude.png" alt="Claude Code in Action Certificate">
+                    </div>
+                    <h4 class="certificate-title">Claude Code in Action Certificate</h4>
+                    <p class="certificate-description">Completed Claude Code in Action by Anthropic — learned hands-on AI software coding, agentic tool workflows, and prompt engineering with Claude.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-------------------------- JS -------------------------->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+    
+    <!-------------------------- Footer section -------------------------->
+    <footer class="footer">
+        <small class="message">Thanks for visiting and happy coding!</small>
+        <small class="copyright">&copy; Rajendra 2026. All rights reserved.</small>
+    </footer>
+
+</body>
+</html>
